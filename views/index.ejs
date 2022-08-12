@@ -1,0 +1,37 @@
+<%- include("components/header"); -%>
+
+<!--Head-->
+
+
+  <section >
+    <div >
+
+      <div class="home">
+          <h1>Hello</h1>
+
+        </div>
+
+          
+          <div >
+    <%  posts.forEach(function(message){ %>
+
+      
+      <h2 class="message"> <%= message.message%> </h2>  
+        <!-- Here we have inversed the order using css, so that the latest post appears on the top. -->
+   
+  <% });  %>
+
+</div>
+
+                   
+       
+
+        </div>
+
+      </div>       
+
+    </div>
+  </section>
+
+
+<%- include("components/footer"); -%>
