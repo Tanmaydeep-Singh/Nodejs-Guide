@@ -5,6 +5,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require('ejs');
 const mongoose = require("mongoose");
+const { text } = require("body-parser");
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14,6 +24,8 @@ const mongoose = require("mongoose");
 
 //Creating our app
 const app = express(); 
+
+
 
 
 
@@ -106,13 +118,52 @@ app.post("/message",(req,res)=>{
 
 
 
-// app.get("/blog",(req,res)=>{
-//     Writer.find({}, function(err, newData){
-//         res.render("blog", {
-//           posts:newData
-//         });
-//     });
-// });
+// Adding a way to remove a post from schema.
+app.get('/delete/:postId',(req,res)=>{
+    
+    const requestedPostId = req.params.postId;
+    Message.findOne({_id: requestedPostId}, function(err, message){
+        message.remove();
+        res.redirect('/');
+    
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
